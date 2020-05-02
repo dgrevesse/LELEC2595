@@ -1,0 +1,55 @@
+Figure(1) = figure;
+b1 = bar([harmonics_data.limit_h(2:end)',harmonics_data.Vpcc_h1(2:end)',harmonics_data.Vpcc_h2(2:end)'],'grouped');
+% b1(1).FaceColor = [0.8500 0.3250 0.0980];
+% b1(2).FaceColor = [0.9290 0.6940 0.1250];
+legend('Limit','Qc_{min}','Qc_{max}');  xlabel('Harmonic order [#]'); ylabel('% of fundamental');
+
+Figure(2) = figure;
+b2 = bar([harmonics_data.limit_h(2:end)',harmonics_data.Ipcc_h1(2:end)',harmonics_data.Ipcc_h2(2:end)'],'grouped');
+% b2(1).FaceColor = [0.8500 0.3250 0.0980];
+% b2(2).FaceColor = [0.9290 0.6940 0.1250];
+legend('Qc_{min}','Qc_{max}');  xlabel('Harmonic order [#]'); ylabel('% of fundamental');
+
+Figure(3) = figure;
+hold on;
+plot(harmonics_data.Z1(:,1),abs(harmonics_data.Z1(:,2))/Zb2,'linewidth',0.9);
+plot(harmonics_data.Z2(:,1),abs(harmonics_data.Z2(:,2))/Zb2,'linewidth',0.9);
+s1 = scatter(harmonics_data.Z1(1:50:end,1),abs(harmonics_data.Z1(1:50:end,2))/Zb2,10);
+s1.LineWidth = 0.1;
+s1.MarkerEdgeColor = [0 0.4470 0.7410];
+s1.MarkerFaceColor = [0 0.4470 0.7410];
+s2 = scatter(harmonics_data.Z2(1:50:end,1),abs(harmonics_data.Z2(1:50:end,2))/Zb2,10);
+s2.LineWidth = 0.1;
+s2.MarkerEdgeColor = [0.8500 0.3250 0.0980];
+s2.MarkerFaceColor = [0.8500 0.3250 0.0980];
+legend('Qc_{min}','Qc_{max}');  xlabel('Frequency [Hz]'); ylabel('Impedance [pu]');
+
+current = (0:1/50:30).^-1;
+current(1) = 1;
+Figure(4) = figure;
+hold on;
+plot(harmonics_data.Z1(:,1),abs(harmonics_data.Z1(:,2))/Zb2.*current','linewidth',0.9);
+plot(harmonics_data.Z2(:,1),abs(harmonics_data.Z2(:,2))/Zb2.*current','linewidth',0.9);
+s1 = scatter(harmonics_data.Z1(1:50:end,1),abs(harmonics_data.Z1(1:50:end,2))/Zb2.*current(1:50:end)',10);
+s1.LineWidth = 0.1;
+s1.MarkerEdgeColor = [0 0.4470 0.7410];
+s1.MarkerFaceColor = [0 0.4470 0.7410];
+s2 = scatter(harmonics_data.Z2(1:50:end,1),abs(harmonics_data.Z2(1:50:end,2))/Zb2.*current(1:50:end)',10);
+s2.LineWidth = 0.1;
+s2.MarkerEdgeColor = [0.8500 0.3250 0.0980];
+s2.MarkerFaceColor = [0.8500 0.3250 0.0980];
+legend('Qc_{min}','Qc_{max}');  xlabel('Frequency [Hz]'); ylabel('Impedance [pu]');
+
+FIG(4) = figure;
+hold on; grid on;
+plot(Ipcc.Time,Ipcc.Data(:,:),'linewidth',0.9);
+legend('phase a','phase b','phase c'); 
+xlabel('Time [s]'); ylabel('Current [pu]');
+xlim([0.1 0.13]);
+
+FIG(5) = figure;
+hold on; grid on;
+plot(Vpcc.Time,Vpcc.Data(:,:),'linewidth',0.9);
+legend('phase a','phase b','phase c'); 
+xlabel('Time [s]'); ylabel('Current [pu]');
+xlim([0.1 0.13]);

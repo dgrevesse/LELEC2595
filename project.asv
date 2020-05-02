@@ -7,8 +7,7 @@ load('power_system_params')
 Sb = 220e6;
 Vb1 = 220e3;
 Vb2 = 70e3;
-Zb1 = Vb1^2/Sb;
-Zb2 = Vb2^2/Sb;
+
 S_railway = 15e6;
 k = 0.8;
 lines = lines_data;
