@@ -4,7 +4,9 @@ clc
 %sim('project_simu.slx')
 load('power_system_params')
 %% Parameters :
-Filters = [9.03 14.75 13.03 17.85 5.37 3.19 6.3 16.61 17.68 16.73];
+%Filters = [9.03 14.75 13.03 17.85 5.37 3.19 6.3 16.61 17.68 16.73];
+%Filters = [27.376 35.728 23.107 15.831 5.564 3.401 7.005 8.057 13.374 8.691];
+Filters = [56.376 24.728 45.107 15.831 5.564 3.401 7.005 8.057 13.374 8.691];
 f = Filters/mean(Filters);
 Sb = 220e6;
 Vb1 = 220e3;
@@ -14,8 +16,7 @@ Zb2 = Vb2^2/Sb;
 S_railway = 15e6;
 k = 0.8;
 lines = lines_data;
-%lines([1 2 3 9 10],1:4) = lines([1 2 3 9 10],1:4)/2;
-m = 1; % C min or max
+m = 2; % C min or max
 banks = 1e6*banks_data;
 loads = zeros(10,2);
 loads(1:9,:) = 1e6*[loads_data(:,2) loads_data(:,2).*sqrt(1-(loads_data(:,3)).^2)./loads_data(:,3)];

@@ -1,11 +1,11 @@
 Figure(1) = figure;
-b1 = bar([harmonics_data.limit_h(2:end)',harmonics_data.Vpcc_h1f(2:end)',harmonics_data.Vpcc_h2f(2:end)'],'grouped');
-% b1(1).FaceColor = [0.8500 0.3250 0.0980];
-% b1(2).FaceColor = [0.9290 0.6940 0.1250];
+b1 = bar([harmonics_data.limit_h(2:end)',harmonics_data.Vpcc_h1f_c(2:end)',harmonics_data.Vpcc_h2f_c(2:end)'],'grouped');
+%b1(1).FaceColor = [0.8500 0.3250 0.0980];
+%b1(2).FaceColor = [0.9290 0.6940 0.1250];
 legend('Limit','Qc_{min}','Qc_{max}');  xlabel('Harmonic order [#]'); ylabel('% of fundamental');
 
 Figure(2) = figure;
-b2 = bar([harmonics_data.Vpcc_h2(2:end)',harmonics_data.Vpcc_HI_h(2:end)',harmonics_data.Vpcc_CM_h(2:end)'],'grouped');
+b2 = bar([harmonics_data.Vpcc_h2_c(2:end)',harmonics_data.Vpcc_HI_h_c(2:end)',harmonics_data.Vpcc_CM_h_c(2:end)'],'grouped');
 % b2(1).FaceColor = [0.8500 0.3250 0.0980];
 % b2(2).FaceColor = [0.9290 0.6940 0.1250];
 legend('Qc_{max}','HI','CM');  xlabel('Harmonic order [#]'); ylabel('% of fundamental');
